@@ -5,10 +5,72 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Crimson Glaives{% endblock %}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 24px;
+        }
+
+        nav {margin-left: 10%;
+            padding: 10px;
+            max-width: 80%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 20px;
+            height: 100%;
+            width: 10%;
+            background-color: black;
+        }
+
+        nav li {
+            margin-top: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: white;
+            
+        }
+
+        header {
+            margin-left: 10%;
+            padding: 10px;
+            max-width: 80%;
+            text-align: center;
+        }
+
+        main {
+            margin-left: 10%;
+            padding: 10px;
+            max-width: 80%;
+        }
+    </style>
 </head>
 <body>
-    {% block content %}
+    <nav>
+        <ul>
+            <li><a href="/home">home</a></li>
+            <li><a href="/cooking">cooking</a></li>
+            <li><a href="/grind">grinding</a></li>
+            <li><a href="/processing">processing</a></li>            
+        </ul>                
+    </nav>
+    <header>
+        <h1>Crimson Glaives Workshop</h1>
+    </header>
+    <main>
+        {% block content %}
 
-    {% endblock %}
+        {% endblock %}
+    </main>
+
 </body>
 </html>
