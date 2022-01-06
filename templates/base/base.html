@@ -17,7 +17,7 @@
             font-size: 24px;
         }
 
-        nav {margin-left: 10%;
+        nav {            
             padding: 10px;
             max-width: 80%;
             position: fixed;
@@ -25,7 +25,7 @@
             left: 0;
             padding: 20px;
             height: 100%;
-            width: 10%;
+            width: 15%;
             background-color: black;
         }
 
@@ -40,36 +40,67 @@
             
         }
 
+        nav div {
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        nav li {
+            list-style-type: none;
+        }
+
         header {
-            margin-left: 10%;
+            margin-left: 15%;
             padding: 10px;
-            max-width: 80%;
+            max-width: 70%;
             text-align: center;
         }
 
         main {
-            margin-left: 10%;
+            margin-left: 15%;
             padding: 10px;
-            max-width: 80%;
+            max-width: 70%;
+            min-height: 200%;
+            background-color: aqua;
+        }
+        main div {
+            min-height: 200%;
+            background-color: aqua;
         }
     </style>
 </head>
 <body>
     <nav>
+        <div>
+            {% if user.is_authenticated %}
+                <p>Hi {{ user.username }}!</p>
+                <p><a href="{% url 'logout' %}">log out</a></p>
+            {% else %}
+                <p>You are not logged in</p>
+                <a href="{% url 'login' %}">log in</a>
+            {% endif %}
+        </div>  
         <ul>
             <li><a href="/home">home</a></li>
-            <li><a href="/cooking">cooking</a></li>
+            <!-- <li><a href="/cooking">cooking</a></li> -->
             <li><a href="/grind">grinding</a></li>
-            <li><a href="/processing">processing</a></li>            
-        </ul>                
+            <!-- <li><a href="/processing">processing</a></li>             -->
+            <!-- <li><a href="#">imperials</a></li>             -->
+            <!-- <li><a href="#">nodes</a></li>             -->
+            <!-- <li><a href="#">workshops</a></li>             -->
+        </ul>
+                      
     </nav>
     <header>
         <h1>Crimson Glaives Workshop</h1>
     </header>
     <main>
-        {% block content %}
+        <div>
+            {% block content %}
 
-        {% endblock %}
+            {% endblock %}
+        </div>
+        
     </main>
 
 </body>
